@@ -11,16 +11,68 @@ package ca.sheridancollege.project;
  * should remember to add themselves as a modifier.
  * @author dancye, 2018
  */
-public abstract class Card 
+public class Card 
 {
     //default modifier for child classes
+    // possible cards
+    public enum Suit { DIAMONDS,CLUBS,SPADES,HEARTS };
+    public enum Value {EIGHT,NINE,TEN,JACK,QUEEN,KING,ACE,SEVEN};
     
+    //data
+    private Suit suit; 
+    private Value value;
+    
+
+    //constructor
+    public Card()
+    {
+       
+    }
+    public Card(Suit s)
+    {
+        suit=s;
+    }
+    public Card(Suit s,Value v)
+    {
+        suit =s;
+        value = v;
+    }
+    
+    public Card(Card c)
+    {
+        suit=c.getSuit();
+        value=c.getValue();
+    }
+    
+    //suit getter setter
     /**
-     * Students should implement this method for their specific children classes 
-     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
+     * @return the suit
      */
+    public Suit getSuit() {
+        return suit;
+    }
+
+    /**
+     * @param suit the suit to set
+     */
+    public void setSuit(Suit suit) {
+        this.suit = suit;
+    }
+
     
-    @Override
-    public abstract String toString();
+    //value getter setter
+    /**
+     * @return the value
+     */
+    public Value getValue() {
+        return value;
+    }
+
+    /**
+     * @param value the value to set
+     */
+    public void setValue(Value value) {
+        this.value = value;
+    }
     
 }

@@ -5,44 +5,109 @@
  */
 package ca.sheridancollege.project;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 /**
- * A class that models each Player in the game. Players have an identifier, which should be unique.
+ * A class that models each Player in the game. Players have an identifier,
+ * which should be unique.
+ *
  * @author dancye, 2018
  */
-public abstract class Player 
-{
-    private String playerID; //the unique ID for this player
-    
-    /**
-     * A constructor that allows you to set the player's unique ID
-     * @param name the unique ID to assign to this player.
-     */
-    public Player(String name)
-    {
-        playerID= name;
+public class Player {
+
+    // variables
+    private int playerID; //player id
+    private String playerName; //player name
+    private int roundScore;      //points of player
+    private ArrayList<Card> playerCards; // cards of each player
+    private int quota; // number of tricks player need to make
+    private int totalScore; // annual score
+    private Card playedCard; // card on play
+
+    //constructor
+    public Player(int playerID, String playerName) {
+        this.playerName = playerName;
+        this.playerID = playerID;
+        roundScore = 0;
+
     }
-    
-    /**
-     * @return the playerID
-     */
-    public String getPlayerID() 
-    {
+
+    Player() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    // getter setter
+    public int getPlayerID() {
         return playerID;
     }
 
-    /**
-     * Ensure that the playerID is unique
-     * @param givenID the playerID to set
-     */
-    public void setPlayerID(String givenID) 
-    {
-        playerID = givenID;
+    public void setPlayerID(int playerID) {
+        this.playerID = playerID;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public int getRoundScore() {
+        return roundScore;
+    }
+
+    public void setRoundScore(int roundScore) {
+        this.roundScore = roundScore;
+    }
+
+    public ArrayList<Card> getPlayerCards() {
+        return playerCards;
+    }
+
+    public void setPlayerCards(ArrayList<Card> playerCards) {
+        if (this.playerCards == null) {
+            this.playerCards = playerCards;
+        } else {
+            this.playerCards.addAll(playerCards);
+        }
+    }
+
+    public int getQuota() {
+        return quota;
+    }
+
+    public void setQuota(int quota) {
+        this.quota = quota;
+    }
+
+    public int getTotalScore() {
+        return totalScore;
+    }
+
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
+    }
+
+    // functionalities
+    // display player cards
+    public void showPlayerCards() {
+        System.out.println("\n" + this.getPlayerName() + "'s cards");
+        int i=0;
+        for (Card card : this.getPlayerCards()) {
+            System.out.println("Card "+i+": "+card.getValue() + " of " + card.getSuit());
+            i++;
+        }
+    }
+
+    public Card getPlayedCard() {
+        return playedCard;
+    }
+
+    public void setPlayedCard(Card playedCard) {
+        this.playedCard = playedCard;
     }
     
-    /**
-     * The method to be instantiated when you subclass the Player class
-     * with your specific type of Player and filled in with logic to play your game.
-     */
-    public abstract void play();
-    
+
 }
