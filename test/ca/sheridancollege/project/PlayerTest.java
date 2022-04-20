@@ -37,107 +37,87 @@ public class PlayerTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getPlayerID method, of class Player.
-     */
-    @Test
-    public void testGetPlayerID() {
-        System.out.println("getPlayerID");
-        Player instance = null;
-        int expResult = 0;
-        int result = instance.getPlayerID();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-   
-    /**
-     * Test of getPlayerName method, of class Player.
-     */
-    @Test
-    public void testGetPlayerName() {
-        System.out.println("getPlayerName");
-        Player instance = null;
-        String expResult = "";
-        String result = instance.getPlayerName();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-
+    
     /**
      * Test of getRoundScore method, of class Player.
      */
     @Test
-    public void testGetRoundScore() {
-        System.out.println("getRoundScore");
-        Player instance = null;
+    public void testGetRoundScoreGood() {
+        System.out.println("getRoundScore Good");
+         
+        Player instance = new Player();
+        int expResult = 1;
+        int result = instance.getRoundScore()+1;
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+        @Test
+    public void testGetRoundScoreBad() {
+        System.out.println("getRoundScore Bad");
+         
+        Player instance = new Player();
+        int expResult = -1;
+        int result = instance.getRoundScore()-1;
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+        @Test
+    public void testGetRoundScoreBoundary() {
+        System.out.println("getRoundScore Boundary");
+         
+        Player instance = new Player();
         int expResult = 0;
         int result = instance.getRoundScore();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getPlayerCards method, of class Player.
-     */
-    @Test
-    public void testGetPlayerCards() {
-        System.out.println("getPlayerCards");
-        Player instance = null;
-        ArrayList<Card> expResult = null;
-        ArrayList<Card> result = instance.getPlayerCards();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
      * Test of getQuota method, of class Player.
      */
     @Test
-    public void testGetQuota() {
-        System.out.println("getQuota");
-        Player instance = null;
+    public void testGetQuotaGood() {
+         
+        System.out.println("getQuota Good");
+        Player instance = new Player();
+        instance.setQuota(5);
+        int expResult = 5;
+        int result = instance.getQuota();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testGetQuotaBad() {
+         
+        System.out.println("getQuota Bad");
+        Player instance = new Player();
+        instance.setQuota(3);
+        int expResult = 3;
+        int result = instance.getQuota();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testGetQuotaBoundary() {
+         
+        System.out.println("getQuota Boundary");
+        Player instance = new Player();
         int expResult = 0;
         int result = instance.getQuota();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getTotalScore method, of class Player.
-     */
-    @Test
-    public void testGetTotalScore() {
-        System.out.println("getTotalScore is Good");
-        final Player instance = new Player();
-        int expResult = 0;
-        int result = instance.getTotalScore();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
-
-    /**
-     * Test of getPlayedCard method, of class Player.
-     */
-    @Test
-    public void testGetPlayedCard() {
-        System.out.println("getPlayedCard");
-        Player instance = null;
-        Card expResult = null;
-        Card result = instance.getPlayedCard();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-
     
 }

@@ -34,7 +34,7 @@ public class Player {
     }
 
     Player() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       
     }
 
     // getter setter
